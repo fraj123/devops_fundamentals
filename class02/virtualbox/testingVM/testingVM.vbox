@@ -7,6 +7,11 @@
 -->
 <VirtualBox xmlns="http://www.virtualbox.org/" version="1.16-windows">
   <Machine uuid="{838caf4d-798e-4a67-9367-3f16a2434b37}" name="testingVM" OSType="Ubuntu_64" snapshotFolder="Snapshots" lastStateChange="2022-09-21T00:55:32Z">
+    <MediaRegistry>
+      <HardDisks>
+        <HardDisk uuid="{f30b17a2-e475-49b7-8620-e0bf2fc691ae}" location="D:/JS/DevOps/class02/class02/virtualbox/disks/disk_01.vdi" format="VDI" type="Normal"/>
+      </HardDisks>
+    </MediaRegistry>
     <Hardware>
       <CPU>
         <PAE enabled="false"/>
@@ -37,7 +42,11 @@
     </Hardware>
     <StorageControllers>
       <StorageController name="IDE" type="PIIX4" PortCount="2" useHostIOCache="true" Bootable="true"/>
-      <StorageController name="SATA" type="AHCI" PortCount="1" useHostIOCache="false" Bootable="true" IDE0MasterEmulationPort="0" IDE0SlaveEmulationPort="1" IDE1MasterEmulationPort="2" IDE1SlaveEmulationPort="3"/>
+      <StorageController name="SATA" type="AHCI" PortCount="1" useHostIOCache="false" Bootable="true" IDE0MasterEmulationPort="0" IDE0SlaveEmulationPort="1" IDE1MasterEmulationPort="2" IDE1SlaveEmulationPort="3">
+        <AttachedDevice type="HardDisk" hotpluggable="false" port="0" device="0">
+          <Image uuid="{f30b17a2-e475-49b7-8620-e0bf2fc691ae}"/>
+        </AttachedDevice>
+      </StorageController>
     </StorageControllers>
   </Machine>
 </VirtualBox>

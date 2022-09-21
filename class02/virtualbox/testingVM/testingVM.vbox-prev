@@ -16,7 +16,7 @@
       </CPU>
       <Memory RAMSize="1024"/>
       <HID Pointing="USBTablet"/>
-      <Display controller="VMSVGA" VRAMSize="16"/>
+      <Display controller="VMSVGA" VRAMSize="12"/>
       <BIOS>
         <IOAPIC enabled="true"/>
         <SmbiosUuidLittleEndian enabled="true"/>

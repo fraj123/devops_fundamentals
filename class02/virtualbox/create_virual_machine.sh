@@ -25,7 +25,8 @@ vboxmanage modifyvm testingVM --memory 1024
 vboxmanage modifyvm testingVM --cpus 1
 vboxmanage modifyvm testingVM --nic1 nat
 vboxmanage modifyvm testingVM --vram 12
-
+vboxmanage createhd --size 10000 --filename D:\JS\DevOps\class02\class02\virtualbox\disks\disk_01
+vboxmanage storageattach testingVM --storagectl "SATA" --device 0 --port 0 --type hdd --medium D:\JS\DevOps\class02\class02\virtualbox\disks\disk_01.vdi
 
 # To do, create storage and attach it
 
