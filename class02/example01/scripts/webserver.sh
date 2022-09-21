@@ -1,3 +1,3 @@
 #!/bin/bash
-apt-get install php -y
+apt-get install nginx -y
 
