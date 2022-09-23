@@ -103,4 +103,33 @@ docker tag hello-world:latest 392405208147.dkr.ecr.us-east-1.amazonaws.com/hello
 ```
 docker push 392405208147.dkr.ecr.us-east-1.amazonaws.com/hello-world:latest
 ```
+## Multicontainer
+1. Run docker compose
+```
+docker compose up -d
+```
+2. Check the status
+```
+docker compose ps
+```
+3. Exec into the directory-frontend container
+```
+docker-compose exec directory-frontend bash
+```
+4. Inside the container, run the following commands
+```
+ps -x
 
+# you can access the "service" container from the front end to see the users data
+curl directory-service/employee
+
+exit
+```
+5. View the logs from the directory-frontend container
+```
+docker-compose logs directory-frontend
+```
+6. Stop and remove the Docker resources
+```
+docker compose down
+```
