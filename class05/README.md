@@ -57,16 +57,50 @@ docker run -d -p 8080:8080 \
 --name webapp \
 first-container
 ```
-## Docker Registry
-1. Login to Registry
+## Docker Registry (Docker hub)
+1. Build Image
+```
+docker build -t hello-world .
+```
+2. Search Image
+```
+docker images --filter reference=hello-world
+```
+3. Login to Registry
 ```
 cat docker-hub-pass | docker login --username fraj123 --password-stdin
 ```
-2. Tag Image
+4. Tag Image
 ```
 docker tag hello-world:latest fraj123/hello-world:latest
 ```
-3. Push Image
+5. Push Image
 ```
 docker push fraj123/hello-world:latest
 ```
+## Docker Registry (Private Registry AWS-ECR)
+1. Build Image
+```
+docker build -t hello-world .
+```
+2. Search Image
+```
+docker images --filter reference=hello-world
+```
+3. Login to Registry
+```
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 392405208147.dkr.ecr.us-east-1.amazonaws.com
+```
+4. Create repository
+```
+aws ecr create-repository --repository-name hello-world --image-scanning-configuration scanOnPush=true --region us-east-1
+```
+5. Tag Image
+```
+docker tag hello-world:latest 392405208147.dkr.ecr.us-east-1.amazonaws.com/hello-world:latest
+```
+6. Push the image
+```
+docker push 392405208147.dkr.ecr.us-east-1.amazonaws.com/hello-world:latest
+```
+
