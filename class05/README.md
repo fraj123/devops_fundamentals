@@ -26,7 +26,7 @@ docker logs webapp
 ```
 7. Launch a shell inside the container.
 ```
-docker exec -it webapp /bin/sh
+docker exec -it webapp /bin/sh  |   docker exec -it webapp sh
 ```
 8. In the container, look at the contents of the /app folder and view the contents of /app/input.txt.
 ```
@@ -47,7 +47,7 @@ docker rm webapp
 ### Modify the container
 1. Create an `~/input.txt` file with five words, with each word on a new line.
 ```
-printf "cinco\ncuatro\ntres\ndos\nuno" > ~/input.txt
+printf "First\ncontainer\ntesting\ntry\ntwo\n=D" > input.txt
 ```
 2. Launch a container with the new file mounted in place of `/app/input.txt`.
 ```
@@ -56,6 +56,15 @@ docker run -d -p 8080:8080 \
 -v ~/input.txt:/app/input.txt \
 --name webapp \
 first-container
+
+or
+
+docker run -d -p 8080:8080 \
+-e MESSAGE_COLOR=#057B76 \
+-v D:/JS/DevOps/Class2branch/class05/first-container/app/input.txt:/app/input.txt \
+--name webapp \
+first-container
+
 ```
 ## Docker Registry (Docker hub)
 1. Build Image
