@@ -1,0 +1,6 @@
+vboxmanage createvm --name Test --ostype Ubuntu_64 --register --basefolder D:\Users\JUANKI\Desktop\devops\VirtualBoxs\ --default
+vboxmanage modifyvm Test --ioapic on
+vboxmanage modifyvm Test --memory 2048 --cpus 2
+vboxmanage modifyvm Test --nic1 nat
+vboxmanage createhd --size 10000 --filename D:\Users\JUANKI\Desktop\devops\VirtualBoxs\Test
+vboxmanage storageattach Test --storagectl "SATA" --device 0 --port 0 --type hdd --medium D:\Users\JUANKI\Desktop\devops\VirtualBoxs\Test.vdi
