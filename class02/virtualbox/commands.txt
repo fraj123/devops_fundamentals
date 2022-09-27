@@ -1,0 +1,7 @@
+vboxmanage createvm --name test2 --ostype Ubuntu_64 --register --basefolder D:\Proyectos\SanabriaLucasTarea2 --default
+vboxmanage modifyvm test2 --ioapic on
+vboxmanage modifyvm test2 --memory 1024 --cpus 2
+vboxmanage modifyvm test2 --nic1 nat
+vboxmanage createhd --size 10000 --filename C:\Jala\Devops\vm\$NAME\disks\$NAME_disk
+vboxmanage createhd --size 10000 --filename D:\Proyectos\SanabriaLucasTarea2\test2
+vboxmanage storageattach test2 --storagectl "SATA" --device 0 --port 0 --type hdd --medium D:\Proyectos\SanabriaLucasTarea2\test2.vdi
