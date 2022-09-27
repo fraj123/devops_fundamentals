@@ -1,8 +1,3 @@
-ten
-nine
-eight
-seven
-six
 five
 four
 three
